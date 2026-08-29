@@ -566,8 +566,9 @@ Streaming prerecorded video dominates residential ISP traffic today (Netflix ~37
 - Non-persistent HTTP, one object: response time ≈ **2×RTT + object transmission time**
 - Web-cache average delay example: weighted average = (hit rate × cache-hit delay) + (miss rate × miss delay)
 - P2P vs client-server distribution time:
- - $D_{cs} = \max\left\{\frac{NF}{u_s}, \frac{F}{d_{\min}}\right\}$
- - $D_{P2P} = \max\left\{\frac{F}{u_s}, \frac{F}{d_{\min}}, \frac{NF}{u_s + \sum_{i=1}^{N}u_i}\right\}$
+ - $D_{cs} = \max\{\frac{NF}{u_s}, \frac{F}{d_{\min}}\}$
+ - $D_{P2P} = \max\{\frac{F}{u_s}, \frac{F}{d_{\min}}, \frac{NF}{u_s + \sum_{i=1}^{N}u_i}\}$
+
 
 
 - DNS resource record 4-tuple: **(Name, Value, Type, TTL)**
