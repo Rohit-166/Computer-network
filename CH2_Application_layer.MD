@@ -403,14 +403,14 @@ Setup: server upload rate **u_s**; peer *i*'s upload/download rates **u_i**, **d
 **Client-Server distribution time (D_cs):**
 - Server must send the file **N** times → time ≥ **NF/u_s**.
 - Slowest peer (min download rate **d_min**) needs at least **F/d_min** seconds.
-$$D_{cs} = \max\left\{\frac{NF}{u_s}, \frac{F}{d_{min}}\right\} \quad (2.1)$$
+$$D_{cs} = \max \Big( \frac{NF}{u_s},\ \frac{F}{d_{min}} \Big) \quad (2.1)$$
 - For large N, **D_cs ≈ NF/u_s** — grows **linearly** with N. (E.g., N growing 1,000× → distribution time grows 1,000×.)
 
 **P2P distribution time (D_P2P):**
 - Server needs to inject each bit only **once**: ≥ **F/u_s**.
 - Slowest peer still needs ≥ **F/d_min**.
 - Total system upload capacity = **u_s + u_1 + ... + u_N**; must deliver NF bits total → ≥ **NF/(u_s + Σu_i)**.
-$$D_{P2P} = \max\left\{\frac{F}{u_s}, \frac{F}{d_{min}}, \frac{NF}{u_s + \sum_{i=1}^{N} u_i}\right\} \quad (2.3)$$
+$$D_{P2P} = \max \Big( \frac{F}{u_s},\ \frac{F}{d_{min}},\ \frac{NF}{u_s + \sum_{i=1}^{N} u_i} \Big) \quad (2.3)$$
 - **Key result**: as N grows, the third term's numerator (NF) and denominator (includes ΣU_i, which grows with N) both scale with N — so P2P distribution time does **NOT** grow unboundedly like client-server does. This is **self-scalability**: peers add capacity as they add demand.
 - Example (F/u=1 hr, u_s=10u, d_min≥u_s, all peers same rate u): client-server time grows linearly without bound as N increases; P2P time stays **below 1 hour for any N**.
 
@@ -566,7 +566,7 @@ Streaming prerecorded video dominates residential ISP traffic today (Netflix ~37
 - Non-persistent HTTP, one object: response time ≈ **2×RTT + object transmission time**
 - Web-cache average delay example: weighted average = (hit rate × cache-hit delay) + (miss rate × miss delay)
 - P2P vs client-server distribution time:
-   - $D_{cs} = \max\Bigl\{\frac{NF}{u_s}, \frac{F}{d_{\min}}\Bigr\}$
-   - $D_{P2P} = \max\Bigl\{\frac{F}{u_s}, \frac{F}{d_{\min}}, \frac{NF}{u_s + \sum_{i=1}^{N}u_i}\Bigr\}$
+  - $D_{cs} = \max \Big( \dfrac{NF}{u_s},\ \dfrac{F}{d_{min}} \Big)$
+  - $D_{P2P} = \max \Big( \dfrac{F}{u_s},\ \dfrac{F}{d_{min}},\ \dfrac{NF}{u_s + \sum_{i=1}^{N} u_i} \Big)$
 - DNS resource record 4-tuple: **(Name, Value, Type, TTL)**
 - Well-known ports: **HTTP = 80**, **SMTP = 25**, **POP3 = 110**, **DNS = 53** (UDP), TCP welcoming-socket example port used in text = **12000** (arbitrary app-chosen)
