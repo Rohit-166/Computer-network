@@ -566,10 +566,7 @@ Streaming prerecorded video dominates residential ISP traffic today (Netflix ~37
 - Non-persistent HTTP, one object: response time ≈ **2×RTT + object transmission time**
 - Web-cache average delay example: weighted average = (hit rate × cache-hit delay) + (miss rate × miss delay)
 - P2P vs client-server distribution time:
- - $D_{cs} = \max\{\frac{NF}{u_s}, \frac{F}{d_{\min}}\}$
- - $D_{P2P} = \max\{\frac{F}{u_s}, \frac{F}{d_{\min}}, \frac{NF}{u_s + \sum_{i=1}^{N}u_i}\}$
-
-
-
+   - $D_{cs} = \max\Bigl\{\frac{NF}{u_s}, \frac{F}{d_{\min}}\Bigr\}$
+   - $D_{P2P} = \max\Bigl\{\frac{F}{u_s}, \frac{F}{d_{\min}}, \frac{NF}{u_s + \sum_{i=1}^{N}u_i}\Bigr\}$
 - DNS resource record 4-tuple: **(Name, Value, Type, TTL)**
 - Well-known ports: **HTTP = 80**, **SMTP = 25**, **POP3 = 110**, **DNS = 53** (UDP), TCP welcoming-socket example port used in text = **12000** (arbitrary app-chosen)
